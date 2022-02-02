@@ -42,7 +42,7 @@ COPY install_renv_lock.R /workdir
 RUN cd /workdir && Rscript install_renv_lock.R
 
 # install aditional packages
-RUN cd /workdir && git clone https://github.com/ohdsi-studies/LegendT2dm.git
+RUN cd /workdir && git clone https://github.com/eminty/LegendT2dm.git
 COPY install_additional_packages.R /workdir
 RUN cd /workdir && Rscript install_additional_packages.R
 
