@@ -1,4 +1,4 @@
-image_tag <- "eminty/legend_t2dm:0.5"
+image_tag <- "eminty/legend_t2dm:0.6"
 local_folder <-  <YOUR LOCAL FOLDER HERE>
 gcloud_local_folder <- <YOUR LOCAL GCLOUD FOLDER HERE>
 user <- "ohdsi"

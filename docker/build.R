@@ -1,7 +1,7 @@
 # NOTE: before running this script be sure to set the 
 # working directory to the location of this file
 
-bashstring <- "sudo docker build -t eminty/legend_t2dm:0.5 ."
+bashstring <- "sudo docker build -t eminty/legend_t2dm:0.6 ."
 system(bashstring)
 
 # bash_string = """
