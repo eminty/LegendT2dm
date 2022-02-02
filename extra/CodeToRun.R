@@ -12,7 +12,7 @@ options(andromedaTempFolder = "s:/AndromedaTemp")
 maxCores <- min(4, parallel::detectCores()) # Or more depending on your hardware
 
 # Minimum cell count when exporting data:
-minCellCount <- 5
+minCellCount <- 10
 
 # The folder where the study intermediate and result files will be written:
 outputFolder <- "s:/LegendT2dmStudy"
