@@ -24,7 +24,6 @@ limitations under the License.
 IF OBJECT_ID('@cohort_database_schema.@sampled_cohort_table', 'U') IS NOT NULL
 	DROP TABLE @cohort_database_schema.@sampled_cohort_table;
 
-
 --HINT DISTRIBUTE_ON_KEY(subject_id)
 SELECT cohort_definition_id,
 	subject_id,

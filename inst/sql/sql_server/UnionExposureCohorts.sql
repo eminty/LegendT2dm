@@ -36,7 +36,8 @@ FROM (
 		cohort_start_date
 	FROM @cohort_database_schema.@cohort_table union_cohort
 	INNER JOIN #comparisons comparisons
-		ON union_cohort.cohort_definition_id = comparisons.cohort_definition_id
+		--ON union_cohort.cohort_definition_id = comparisons.cohort_definition_id
+		ON union_cohort.cohort_definition_id = SAFE_CAST(comparisons.cohort_definition_id AS INT64)
 ) tmp;
 
 
