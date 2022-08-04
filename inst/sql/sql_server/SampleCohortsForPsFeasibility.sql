@@ -34,7 +34,8 @@ INTO @cohort_database_schema.@sampled_cohort_table
 FROM (
 	SELECT ROW_NUMBER() OVER (
 			PARTITION BY cohort_definition_id
-			ORDER BY NEWID()
+			--ORDER BY NEWID() : changed by E. Minty for BQ execution
+			ORDER BY GENERATE_UUID()
 			) AS rn,
 		cohort_definition_id,
 		subject_id,
