@@ -49,6 +49,7 @@
 #' @param databaseDescription                  A short description (several sentences) of the database.
 #' @param minCellCount                         The minimum cell count for fields contains person counts
 #'                                             or fractions when exporting to CSV.
+#' @param studyEndDate                         Optional study end date for EHRs
 #' @param imputeExposureLengthWhenMissing      For OptumEHR: impute length of drug exposures when the
 #'                                             length is missing?
 #' @param createExposureCohorts                Create the tables with the exposure cohorts?
@@ -59,6 +60,7 @@
 #'                                             data and injected signals?
 #' @param runCohortMethod                      Run the CohortMethod package to produce the outcome
 #'                                             models?
+#' @param runSections                          Run specific sections through CohortMethod
 #' @param computeCovariateBalance              Report covariate balance statistics across comparisons?
 #' @param exportToCsv                          Export all results to CSV files?
 #' @param filterExposureCohorts  Optional subset of exposure cohorts to use; \code{NULL} implies all.
@@ -81,12 +83,14 @@ execute <- function(connectionDetails,
                     minCohortSize = 1000,
                     minCellCount = 5,
                     imputeExposureLengthWhenMissing = FALSE,
+                    studyEndDate = "",
                     createExposureCohorts = TRUE,
                     createOutcomeCohorts = TRUE,
                     fetchAllDataFromServer = TRUE,
                     synthesizePositiveControls = FALSE,
                     generateAllCohortMethodDataObjects = TRUE,
                     runCohortMethod = TRUE,
+                    runSections = c(1:6),
                     computeCovariateBalance = TRUE,
                     exportToCsv = TRUE,
                     filterExposureCohorts = NULL,
@@ -146,6 +150,7 @@ execute <- function(connectionDetails,
                                tablePrefix = tablePrefix,
                                indicationId = indicationId,
                                outputFolder = outputFolder,
+                               studyEndDate = studyEndDate,
                                useSample = FALSE)
     }
     if (synthesizePositiveControls) {
@@ -171,7 +176,8 @@ execute <- function(connectionDetails,
         runCohortMethod(outputFolder = outputFolder,
                         indicationId = indicationId,
                         databaseId = databaseId,
-                        maxCores = maxCores)
+                        maxCores = maxCores,
+                        runSections = runSections)
     }
 
     # if (computeIncidence) {
@@ -201,6 +207,7 @@ execute <- function(connectionDetails,
                       databaseName = databaseName,
                       databaseDescription = databaseDescription,
                       minCellCount = minCellCount,
+                      runSections = runSections,
                       maxCores = maxCores)
     }
 

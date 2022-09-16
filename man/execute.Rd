@@ -19,12 +19,14 @@ execute(
   minCohortSize = 1000,
   minCellCount = 5,
   imputeExposureLengthWhenMissing = FALSE,
+  studyEndDate = "",
   createExposureCohorts = TRUE,
   createOutcomeCohorts = TRUE,
   fetchAllDataFromServer = TRUE,
   synthesizePositiveControls = FALSE,
   generateAllCohortMethodDataObjects = TRUE,
   runCohortMethod = TRUE,
+  runSections = c(1:6),
   computeCovariateBalance = TRUE,
   exportToCsv = TRUE,
   filterExposureCohorts = NULL,
@@ -78,6 +80,8 @@ or fractions when exporting to CSV.}
 \item{imputeExposureLengthWhenMissing}{For OptumEHR: impute length of drug exposures when the
 length is missing?}
 
+\item{studyEndDate}{Optional study end date for EHRs}
+
 \item{createExposureCohorts}{Create the tables with the exposure cohorts?}
 
 \item{createOutcomeCohorts}{Create the tables with the outcome cohorts?}
@@ -91,6 +95,8 @@ data and injected signals?}
 
 \item{runCohortMethod}{Run the CohortMethod package to produce the outcome
 models?}
+
+\item{runSections}{Run specific sections through CohortMethod}
 
 \item{computeCovariateBalance}{Report covariate balance statistics across comparisons?}
 
